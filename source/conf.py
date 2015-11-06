@@ -107,7 +107,8 @@ html_context = {
     'github_repo' : github_repo,
     'source_suffix' : source_suffix,
     'github_host' : github_host,
-    'github_branch' : github_branch}
+    'github_branch' : github_branch
+    }
 
 # readability
 html_theme = 'sponge_docs_theme'
