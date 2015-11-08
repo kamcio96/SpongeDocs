@@ -4,9 +4,14 @@ World Generation
 
 World Generation in Minecraft is a complicated process, and Sponge adds its own complications too.
 Here we provide a basic overview of how it works for the interested reader.
-You may choose to skip this and move directly to the API details here:
+You may choose to skip this and move directly to the API details at:
 
-[Links to WGen API pages TBA]
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    customwgen
 
 
 An Overview of World Generation in Minecraft
