@@ -238,14 +238,3 @@ Creating Custom Biomes
 ~~~~~~~~~~~~~~~~~~~~~~
 
 *At present it is not possible to create entirely new biomes from purely within the SpongeAPI.*
-
-
-[TODO]
-    - add WorldGenerator.getPopulators)
-    - add BiomeGenerationSettings.getPopulators)
-    - Test code snippets and update for usability changes
-
-
-
-
-	
