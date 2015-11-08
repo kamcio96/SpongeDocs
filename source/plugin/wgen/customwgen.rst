@@ -10,7 +10,7 @@ Modifying World Generation
 - Creating Custom Populators
 - Creating Custom Biomes
 
-For a brief overview of the World Generation process in Sponge, please read :doc:`../wgen-index`.
+For a brief overview of the World Generation process in Sponge, please read :doc:`index`.
 Now, let's show how you can begin making your mark on world generation.
 All plugins wishing to make changes to a worlds generator must register a ``WorldGeneratorModifier``.
 These modifiers are registered globally with a unique name, which must be added to the config of a world
