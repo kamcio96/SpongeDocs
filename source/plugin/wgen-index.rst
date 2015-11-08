@@ -36,7 +36,7 @@ within the chunk. Using this biome buffer, the generator replaces the top layers
 ``BlockStates`` and depths specified by the biome's ``GroundCoverLayers``. The biomes are provided by a
 ``BiomeGenerator`` - which may also be applied to the world generator with the ``setBiomeGenerator`` method. 
 
-Now that the base terrain has been generated and primed, we run through the ``GeneratorPopulator``s (*genpop*
+Now that the base terrain has been generated and primed, we run through the ``GeneratorPopulator``\s (*genpop*
 hereafter). These come in two groups: those specified globally for the world generator, and those specified for
 a specific biome. The set of genpops used is the union of the set of all genpops specified, for all biomes 
 present in the chunk.
@@ -47,7 +47,7 @@ any blocks outside of the confines of the currently generating chunk. Content be
 spans multiple chunks must generate in pieces using the chunk position and world seed to determine which piece
 of the whole goes into the current chunk.
 
-Finally, with the base terrain created, the biomes applied, and the ``GeneratorPopulator``s run, we have
+Finally, with the base terrain created, the biomes applied, and the ``GeneratorPopulator``\s run, we have
 completed the generation phase, and the Chunk object can be constructed and returned.
 
 The Population Phase
