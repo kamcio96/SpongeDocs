@@ -4,7 +4,8 @@ Basic Item Usage
 
 Items are represented through an ``ItemStack``. An ``ItemStack`` is an inventory item with information such as the
 amount of the item in the stack, the type of the item, and extra data such as durability. An ``Item`` itself is the
-graphical representation of an ``ItemStack`` as an entity.
+graphical representation of an ``ItemStack`` as an entity. Be aware that you'll always get a copy and *not* the actual
+``ItemStack``.
 
 Checking an Item's Type
 ~~~~~~~~~~~~~~~~~~~~~~~
