@@ -1,11 +1,11 @@
-===============================================
-Git Workflow for Sponge API and Implementations
-===============================================
+========================================
+Git Workflow for API and Implementations
+========================================
 
 Developing the API
 ==================
 
-The basic process of adding your changes is explained in the :doc:`../howtogit` section. On Top of that we suggest that
+The basic process of adding your changes is explained in the :doc:`../howtogit` section. On top of that we suggest that
 you create your new branch with a meaningful name, preferably something like ``feature/your-feature-name-here``.
 
 Additionally we require that you ensure the module will compile with ``gradle compileJava``.

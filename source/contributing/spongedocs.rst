@@ -29,6 +29,10 @@ Changes and additions to SpongeDocs should be submitted as a pull request to the
 requests to be refined during the review process. Incomplete explanations are also welcome, so don't shy away if there
 are some parts you do not understand. There will always be someone able to fill in the gaps.
 
+The Docs are written in reStructuredText (reST), if you're familiar with Markdown (md) the step to reST shouldn't be to
+hard. If you're having issues with it we suggest that you join our forums or
+`#SpongeDocs <irc://irc.esper.net:6667/spongedocs>`_ on Esper.net and ask for help there. 
+
 Style Guide
 ===========
 
