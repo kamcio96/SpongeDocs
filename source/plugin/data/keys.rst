@@ -5,7 +5,8 @@ Using Keys
 Getting and offering data using a key
 =====================================
 
-A data holder provides methods to retrieve or alter a single point of data identified by a ``Key``. Let's just start out with an example:
+A data holder provides methods to retrieve or alter a single point of data identified by a ``Key``. Let's just start
+out with an example:
 
 **Code Example: Healing a data holder, if possible**
 
@@ -42,6 +43,16 @@ methods accepting different parameter sets, all of which return a ``DataTransact
 if the offer was accepted. For now, we'll use the one accepting a ``Key`` and a corresponding value, but we will
 encounter more in the next pages. Since we already know that our offer of current health is accepted (as the data
 holder supports it), we can silently discard the result.
+
+It is also possible to completely remove data from a ``DataHolder`` using the ``remove()`` function. Simply provide a
+``Key`` representing the data you want removed. The following example will attempt to remove a custom name from a given
+data holder
+
+.. code-block:: java
+
+    public void removeName(DataHolder target) {
+        target.remove(Keys.DISPLAY_NAME);
+    }
 
 Transforming Data
 =================
