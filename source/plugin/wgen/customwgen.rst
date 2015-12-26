@@ -25,24 +25,37 @@ the WorldGeneratorModifier interface:
 
 .. code-block:: java
 
-	public class MyModifier implements WorldGeneratorModifier {
+    import org.spongepowered.api.data.DataContainer;
+    import org.spongepowered.api.world.WorldCreationSettings;
+    import org.spongepowered.api.world.gen.WorldGenerator;
+    import org.spongepowered.api.world.gen.WorldGeneratorModifier;
 
-		@Override
-		public String getId() {
-			return "myplugin:mymodifier"
-		}
+    public class MyModifier implements WorldGeneratorModifier {
 
-		@Override
-		public void modifyWorldGenerator(WorldCreationSettings world, DataContainer settings, WorldGenerator worldGenerator) {
-			//Make changes here
-		}
-	}
+        @Override
+        public String getId() {
+            return "myplugin:mymodifier";
+        }
 
-As you can see, ``WorldGeneratorModifier`` has two methods which we override. The first method is ``getId()``,
+        @Override
+        public String getName() {
+            return "MyAwesomeModifier";
+        }
+
+        @Override
+        public void modifyWorldGenerator(WorldCreationSettings world, DataContainer settings, WorldGenerator worldGenerator) {
+            //Make changes here
+        }
+    }
+
+As you can see, ``WorldGeneratorModifier`` has three methods which we override. The first method is ``getId()``,
 which must be overridden to return a constant and unique identifier for your ``WorldGeneratorModifier``.
 This value will be used to refer to your ``WorldGeneratorModifier`` from the world configuration.
 
-The second overridden method is where you make your changes to the world generator. This method is called by
+The second one returns a name, which is a more human-readable form of identification. It does not need to be unique but
+nonetheless should be descriptive.
+
+The third overridden method is where you make your changes to the world generator. This method is called by
 the implementation when it is creating the world generator for a world which has specified that your
 ``WorldGeneratorModifier`` should be applied.
 
@@ -55,16 +68,20 @@ Registering a WorldGeneratorModifer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that you have created our modifier, you need to register it. A good place to do this is in an
-``InitializationEvent`` {Citation needed}. To register it, simply call ``GameRegistry.registerWorldGeneratorModifier``.
+``GamePreInitializationEvent`` {Citation needed}. To register it, simply call ``GameRegistry.registerWorldGeneratorModifier``.
 
 .. code-block:: java
+
+    import org.spongepowered.api.GameRegistry;
+    import org.spongepowered.api.event.Listener;
+    import org.spongepowered.api.event.game.state.GamePreInitializationEvent;
+    import com.google.inject.Inject;
 
     @Inject GameRegistry registry;
 
     @Listener
-    public void initialize(InitializationEvent event) {
-        registry.register(...)
-        blahh
+    public void initialize(GamePreInitializationEvent event) {
+        registry.registerWorldGeneratorModifier(new MyModifier());
     }
 
 [TODO something about how to specify to use the modifier in the world configuration.]
@@ -75,10 +92,10 @@ In the next articles we will look deeper at the changes we can make from our ``W
 Modifying Vanilla Generation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: 
+.. note::
 
-	This page assumes that you are familiar with setting up your ``WorldGeneratorModifier``.
-	If not then please see the article on setting up your plugin. {Citation needed}
+    This page assumes that you are familiar with setting up your ``WorldGeneratorModifier``.
+    If not then please see the article on setting up your plugin. {Citation needed}
 
 Sponge exposes a great deal of vanilla world generation, which can be manipulated through the various interfaces.
 Currently, the only elements of the generation process that are *easily* exposed to manipulation are the populators.
@@ -87,10 +104,15 @@ For a quick example, let's look at how we would change the cactii that spawn in 
 
 .. code-block:: java
 
+    import org.spongepowered.api.world.biome.BiomeGenerationSettings;
+    import org.spongepowered.api.world.biome.BiomeTypes;
+    import org.spongepowered.api.world.gen.Populator;
+    import org.spongepowered.api.world.gen.populator.Cactus;
+
     @Override
     public void modifyWorldGenerator(WorldCreationSettings world, DataContainer settings, WorldGenerator worldGenerator) {
-        BiomeGenerationSettings desertSettings = BiomeTypes.DESERT.getGenerationSettings();
-        for(Populator populator: desertSettings.getPopulators()) {
+         BiomeGenerationSettings desertSettings = worldGenerator.getBiomeSettings(BiomeTypes.DESERT);
+         for(Populator populator: desertSettings.getPopulators()) {
             if(populator instanceof Cactus) {
                 ((Cactus) populator).setHeight(5);
             }
@@ -129,7 +151,7 @@ generator as an override for the desert biome.
         }
         worldGenerator.addBiomeOverride(BiomeType.DESERT, desertSettings);
     }
-	
+
 Observer that the loop for changing the Cactus populator has stayed the same, but it has changed how we
 get the desertSettings. First it checks if the biome has already been overridden for this world generator
 (probably by another plugin), if so then it get the settings from the world generator. If it has not been
@@ -143,12 +165,12 @@ scattered everywhere throughout the world.
 
 .. code-block:: java
 
-    PopulatorFactory factory;
+    import org.spongepowered.api.world.gen.populator.Pumpkin;
 
     @Override
     public void modifyWorldGenerator(WorldCreationSettings world, DataContainer settings, WorldGenerator worldGenerator) {
-        Pumpkin.Builder builder = factory.newPumpkinBuilder();
-        builder.count(12);
+        Pumpkin.Builder builder = Pumpkin.builder();
+        builder.perChunk(12);
         Pumpkin pumpkinPopulator = builder.build();
         worldGenerator.getPopulators().add(pumpkinPopulator);
     }
@@ -176,34 +198,35 @@ blocks for biome-specific ground cover.
 
 .. code-block:: java
 
-	public class SinusoidalGenerator implements GenerationPopulator {
-		@Override
-		public void populate(World world, MutableBlockVolume buffer, ImmutableBiomeArea biomes) {
-			for(int x = buffer.getBlockMin().getX(), x < buffer.getBlockMax().getX(); x++) {
-				for(int z = buffer.getBlockMin().getZ(), z < buffer.getBlockMax().getZ(); z++) {
-					BiomeType biome = biomes.get(x, z);
-					int height = getHeight(x, z, biome);
-					for(int y = 0; y < height || y < 64; y++) {
-						if(y < height) {
-							buffer.set(x, y, z, BlockTypes.STONE);
-						} else {
-							buffer.set(x, y, z, BlockTypes.WATER);
-						}
-					}
-				}
-			}
-		}
+    public class SinusoidalGenerator implements GenerationPopulator {
 
-		private int getHeight(int x, int z, BiomeType biome) {
-			double sx = Math.sin(x/64d)+1;
-			double sz = Math.sin(z/64d)+1;
-			double value = (sx + sz) / 4d;
-			BiomeGenerationSettings settings = biome.getGenerationSettings();
-			double heightRange = settings.getMaxHeight() - settings.getMinHeight();
-			double height = heightRange * value | settings.getMinHeight;
-			return GenericMath.floor(height * 256);
-		}
-	}
+        @Override
+            public void populate(World world, MutableBlockVolume buffer, ImmutableBiomeArea biomes) {
+                for(int x = buffer.getBlockMin().getX(); x < buffer.getBlockMax().getX(); x++) {
+                    for(int z = buffer.getBlockMin().getZ(); z < buffer.getBlockMax().getZ(); z++) {
+                        BiomeType biome = biomes.getBiome(x,z);
+                        int height = getHeight(x, z, biome);
+                        for(int y = 0; y < height || y < 64; y++) {
+                            if(y < height) {
+                                buffer.setBlockType(x, y, z, BlockTypes.STONE);
+                            } else {
+                                buffer.setBlockType(x, y, z, BlockTypes.WATER);
+                            }
+                        }
+                    }
+                }
+            }
+
+        private int getHeight(int x, int z, BiomeType biome) {
+            double sx = Math.sin(x / 64d) + 1;
+            double sz = Math.sin(z / 64d) + 1;
+            double value = (sx + sz) / 4d;
+            BiomeGenerationSettings settings = null; // No object of that type obtainable
+            double heightRange = settings.getMaxHeight() - settings.getMinHeight();
+            double height = heightRange * value / settings.getMinHeight();
+            return GenericMath.floor(height * 256);
+        }
+    }
 
 This is a fairly simple example of a base terrain generation populator (at least, if you look past the math to
 calculate the height). For each column in the buffered area we want to calculate a height value, and then fill
