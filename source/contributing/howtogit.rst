@@ -90,7 +90,7 @@ that you need to create the folder everything is getting cloned to yourself befo
   git clone git://github.com/YourGitHubAccount/ClonedRepoName.git
 
 .. image:: /images/contributing/repo-clone.svg
-    :alt: Repo forking
+    :alt: Repo cloning
 
 3. Creating a New Branch
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +116,7 @@ done! Good job so far! To get an overview of your branches, just have a look at 
   git branch
 
 .. image:: /images/contributing/repo-branch.svg
-    :alt: Repo forking
+    :alt: Branches
 
 **Now it's time to make your changes**. Use the editor or IDE of your choice to do this.
 
@@ -160,7 +160,7 @@ that your commits are still stored locally only and not on your fork on Github.
 So now, the sixth step is done. Almost there!
 
 .. image:: /images/contributing/repo-commit.svg
-    :alt: Repo commit
+    :alt: Committing
 
 6. Sync to GitHub
 ~~~~~~~~~~~~~~~~~
@@ -180,7 +180,7 @@ In this case it should be:
  git push origin feature/YourFeature
 
 .. image:: /images/contributing/repo-push.svg
-    :alt: Repo commit
+    :alt: Pushing commits
 
 7. Propose the Changes in a PR to the SpongePowered Repo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,7 +190,7 @@ guide you), or you can use your GitHub client to create a pull-request. The offi
 the top right corner of the window for this.
 
 .. image:: /images/contributing/repo-pr.svg
-    :alt: Repo commit
+    :alt: PRs
 
 8. Amend Your PR if Necessary
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,7 +220,7 @@ Instead of reinventing the wheel, we'll just pass you a link to a very short and
 This is what it does, nicely visualized:
 
 .. image:: /images/contributing/repo-squash.svg
-    :alt: Repo commit
+    :alt: Squashing commits
 
 Setting Up a Remote
 ~~~~~~~~~~~~~~~~~~~
@@ -232,7 +232,7 @@ remote (read: "parent") of your clone, you'll be able to grab all changes made t
 clone. Look below to see how grabbing and updating works.
 
 .. image:: /images/contributing/repo-remote.svg
-    :alt: Repo commit
+    :alt: Setting up a remote
 
 Alright. This step is done through CLI as most GUIs are missing this (rather advanced) functionality:
 
@@ -299,7 +299,7 @@ After that we'll merge the changes that are included in ``upstream/master`` into
 Alright, this is what we've done so far:
 
 .. image:: /images/contributing/repo-rebase1.svg
-  :alt: rebase 1
+  :alt: Rebasing 1
 
 3. Rebase Local Branch against Updated Master
 ---------------------------------------------
@@ -315,12 +315,13 @@ This will rewind your branch, add the commits from master and then apply your ow
 this:
 
 .. image:: /images/contributing/repo-rebase2.svg
-  :alt: rebase 1
+  :alt: Rebasing 2
 
 4. Push Everything to your Fork
 -------------------------------
 
-The last thing we need to do is to push everything to the fork:
+The last thing we need to do is to push everything to the fork. If you've already created a PR, it will get updated
+automatically:
 
 .. code-block:: none
 
@@ -330,6 +331,6 @@ The last thing we need to do is to push everything to the fork:
  git push -f
 
 .. image:: /images/contributing/repo-rebase3.svg
-  :alt: rebase 1
+  :alt: Rebasing 3
 
 You made it, awesome! Good job and well done and thanks for flying Rebase-Air!
