@@ -2,6 +2,38 @@
 Contributing to Sponge
 ======================
 
+This sections intends to show you ways to get involved with Sponge. There are several related projects we're currently
+maintaining:
+
+* SpongeAPI
+* SpongeAPI Implementations
+
+  * SpongeForge
+  * SpongeVanilla
+  * SpongeCommon
+
+* Mixins
+* SpongeDocs
+* Ore
+
+How can I help out?
+===================
+
+The most basic help you can offer is to test SpongeForge or SpongeVanilla and report bugs or usage quirks. This is done
+best via our `Github repositories <https://github.com/spongepowered/>`_. Just have a look at our
+:doc:`Bug Reporting page <../server/spongineer/bugreport>`.
+
+
+
+If you want to help you, you should know about any (or all) of these languages:
+
+* Java
+* Python
+* reST or Markdown
+
+OLD
+===
+
 The articles in this section are intended for people who wish to:
 
 * Volunteer to help with Sponge API or Sponge implementation development by planning, developing, and submitting a
