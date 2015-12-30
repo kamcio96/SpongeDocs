@@ -19,7 +19,7 @@ there are three ways of making us aware of the problem:
 
 #. Create an `Issue on the SpongeDocs GitHub <https://github.com/SpongePowered/SpongeDocs/issues>`_
 #. Create a Posting on the `SpongeDocs Forums Category <https://forums.spongepowered.org/c/sponge-docs>`_
-#. Visit us in the `#spongedocs channel on irc.esper.net <irc://irc.esper.net:6667/spongedocs>`_ (need to be registered)
+#. Visit us in the `#spongedocs channel on irc.esper.net <irc://irc.esper.net:6667/spongedocs>`_ (you need to be registered)
 
 Writing the Docs
 ================

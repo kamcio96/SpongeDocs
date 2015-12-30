@@ -14,11 +14,24 @@ First you need to setup your machine to be able to develop for and with Sponge:
 
 When you're done and feel you're ready for developing Sponge, decide which parts you want to work on.
 
-Minor Fixes or Additions
-========================
+Writing a PR
+============
+
+Fixing Bugs
+~~~~~~~~~~~
+
+Explain in a few sentences:
+
+* which bug you encountered, especially
+
+  * how it behaved
+  * how you think it should behave
+
+* what you fixed
+* how you fixed it
 
 Major API Addition
-==================
+~~~~~~~~~~~~~~~~~~
 
 So, you've developed a pretty large API addition that you want to now submit as a PR. Good! Constructive PR's are what
 make this project keep getting better. Which brings us to writing the glorious PR description.
@@ -38,12 +51,9 @@ A few things that can be taken from this:
 
 * Links to any implementation PRs in clear view at the top of the PR, this can be achieved with GitHub Markdown
 
-
-
 .. code-block:: none
 
   *SpongeAPI*|[SpongeCommon](html link)|[SpongeForge](html link)|[SpongeVanilla](html link)
-
 
 
 * Clear description of what the API PR is aiming to do, this can be a brief summary as if writing an essay, at most 4
