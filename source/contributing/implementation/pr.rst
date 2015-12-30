@@ -2,8 +2,23 @@
 Submitting a Pull-Request
 =========================
 
+The Basics
+==========
+
+First you need to setup your machine to be able to develop for and with Sponge:
+
+* read :doc:`/preparing/index` and setup your machine
+* get familiar with git and GitHub: :doc:`../howtogit`
+* read our :doc:`Code Style page <codestyle>` and :doc:`../guidelines`
+* get familiar with our :doc:`git-implementation`
+
+When you're done and feel you're ready for developing Sponge, decide which parts you want to work on.
+
+Minor Fixes or Additions
+========================
+
 Major API Addition
-~~~~~~~~~~~~~~~~~~
+==================
 
 So, you've developed a pretty large API addition that you want to now submit as a PR. Good! Constructive PR's are what
 make this project keep getting better. Which brings us to writing the glorious PR description.
