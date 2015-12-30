@@ -8,15 +8,13 @@ Modifying World Generation
 - Creating Custom Populators
 - Creating Custom Biomes
 
-
-
 Modifying Vanilla Generation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
     This page assumes that you are familiar with setting up your ``WorldGeneratorModifier``.
-    If not then please see the article on setting up your modifier :doc:`modififers`
+    If not then please see the article on setting up your modifier :doc:`modifiers`
 
 Sponge exposes a great deal of vanilla world generation, which can be manipulated through the various interfaces.
 Currently, the only elements of the generation process that are *easily* exposed to manipulation are the populators.
