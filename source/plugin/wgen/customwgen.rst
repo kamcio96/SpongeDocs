@@ -14,7 +14,7 @@ Modifying Vanilla Generation
 .. note::
 
     This page assumes that you are familiar with setting up your ``WorldGeneratorModifier``.
-    If not then please see the article on setting up your modifier :doc:`modifiers`
+    If not, then please read the article on setting up your modifier at :doc:`modifiers`
 
 Sponge exposes a great deal of vanilla world generation, which can be manipulated through the various interfaces.
 Currently, the only elements of the generation process that are *easily* exposed to manipulation are the populators.
@@ -74,8 +74,8 @@ Voila, now we have pumpkins everywhere.
     as is usually a good idea with Forest populators, then your should add your populator to the start of the list.
 
 These two examples should serve to help you get familiar with the realm of working with vanilla populators.
-This only touches the surface of what is possible. For a complete listing of available populators, and their
-properties, see the javadocs for a complete listing of available populators and their properties.
+This only touches the surface of what is possible. See the javadocs for a complete listing of available populators
+and their properties.
 
 
 Creating Custom Base Terrain
@@ -140,7 +140,7 @@ offset by 8 in both the x and z directions.
 Creating Custom Biomes
 ~~~~~~~~~~~~~~~~~~~~~~
 
-While it is currently not possible to create entirely new biomes from within sponge you can replace the system
+While it is currently not possible to create entirely new biomes from within sponge, you can replace the system
 by which they are arranged in the world be implementing the ``BiomeGenerator`` interface and setting your custom
 biome generator onto a WorldGenerator.
 
