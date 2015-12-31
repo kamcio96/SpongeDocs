@@ -40,7 +40,7 @@ Start by getting the ``BiomeGenerationSettings`` for the desert biome. This obje
 settings relating to that biome. Next, iterate through the list of all ``Cactus`` populators and set the height to 5,
 which means it can only generate cactii which are 5 blocks tall.
 
-..note::
+.. note::
 
     The ``setHeight``, and many other similar methods on other populators, also takes a ``VariableAmount`` which
     can be used to specify the height as a range or other custom value.
