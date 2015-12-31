@@ -61,9 +61,8 @@ And finally these are the most difficult things you can help out with. Advanced 
 least basic knowledge of the `Sponge API <https://github.com/spongepowered/SpongeAPI>`_ and its
 `structure <https://jd.spongepowered.org>`_ is strongly advised before attempting to help out with:
 
-* adding functionality to the API
-* implementing advanced API functionality on the implementations
-* :doc:`implementation/pr`
+* adding functionality to the API (:doc:`implementation/pr`)
+* implementing advanced API functionality in the implementations
 
 Contents
 ========
