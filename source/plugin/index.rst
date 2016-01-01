@@ -47,5 +47,5 @@ Contents
     services
     manager
     debugging
-    message-sinks
+    messagechannels
     tutorials
