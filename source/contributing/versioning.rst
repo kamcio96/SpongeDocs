@@ -31,7 +31,7 @@ Prior to releasing builds the content of the release should be first moved to a 
 This branch allows dedicated testing to be performed for a release without forcing a code freeze on
 the development branches. Any bugfixes applied to the ``release`` branch are merged back to the ``master``
 branch when the release is finalized. Once a release is made the version of the ``master`` and ``bleeding``
-branches are both updated: the ``master`` branch to the next patch version and the ``bleeding`` branch to
+branches are both updated: the ``master`` branch to the next minor version and the ``bleeding`` branch to
 the next major version (assuming it was not already on the next major version).
 
 Hotfix Branches
@@ -51,5 +51,3 @@ breaking or are strictly backwards-compatible. If the changes are purely new fea
 binary-compatible bugfixes, then the feature branch can be merged into the ``master`` branch. If the
 changes include any breaking changes however, then the feature branch must be merged into the
 ``bleeding`` branch to be included in the next major release.
-
-https://dl.dropboxusercontent.com/u/17223377/bin/Sponge/sponge-flow.png
