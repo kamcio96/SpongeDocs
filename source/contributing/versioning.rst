@@ -16,40 +16,40 @@ layout applies to the SpongeAPI, SpongeCommon, SpongeForge, and SpongeVanilla re
 The Core Branches
 =================
 
-There are three branches which form the core of our repositories; they are master, bleeding, and
-release. The master and bleeding branches are for active development and the release branch tracks
+There are three branches which form the core of our repositories; they are ``master``, ``bleeding``, and
+``release``. The ``master`` and ``bleeding`` branches are for active development and the ``release`` branch tracks
 the commit as of the most recent release build.
 
-The key differences between the master and bleeding branches is that any feature branches which are
-breaking *must* be merged into the bleeding branch. This allows the master branch to only contain
+The key differences between the ``master`` and ``bleeding`` branches is that any ``feature`` branches which are
+breaking *must* be merged into the bleeding branch. This allows the ``master`` branch to only contain
 backwards-compatible changes allowing minor versions to be released based on it if necessary.
 
 Release Branches
 ================
 
-Prior to releasing builds the content of the release should be first moved to a release branch.
+Prior to releasing builds the content of the release should be first moved to a release prep branch.
 This branch allows dedicated testing to be performed for a release without forcing a code freeze on
-the development branches. Any bugfixes applied to the release branch are merged back to the master
-branch when the release is finalized. Once a release is made the version of the master and bleeding
-branches are both updated: the master branch to the next patch version and the bleeding branch to
+the development branches. Any bugfixes applied to the ``release`` branch are merged back to the ``master``
+branch when the release is finalized. Once a release is made the version of the ``master`` and ``bleeding``
+branches are both updated: the ``master`` branch to the next patch version and the ``bleeding`` branch to
 the next major version (assuming it was not already on the next major version).
 
 Hotfix Branches
 ===============
 
-If after a release is made, and a significant bug is found, a hotfix branch can be created based on the
+If after a release is made, and a significant bug is found, a ``hotfix/foo`` branch can be created based on the
 last release version and a new release can be made from this hotfix branch with the patch version
-incremented by one. The hotfix branch can then be merged back into master for inclusion into future
+incremented by one. The hotfix branch can then be merged back into ``master`` for inclusion into future
 versions.
 
 Feature Branches
 ================
 
 New features or changes will continue to be done in a ``feature/foo`` or ``fix/bar`` branch. When merging
-back into a development branch (master or bleeding) you should consider whether the changes are
+back into a development branch (``master`` or ``bleeding``) you should consider whether the changes are
 breaking or are strictly backwards-compatible. If the changes are purely new features, or
-binary-compatible bugfixes, then the feature branch can be merged into the master branch. If the
+binary-compatible bugfixes, then the feature branch can be merged into the ``master`` branch. If the
 changes include any breaking changes however, then the feature branch must be merged into the
-bleeding branch to be included in the next major release.
+``bleeding`` branch to be included in the next major release.
 
 https://dl.dropboxusercontent.com/u/17223377/bin/Sponge/sponge-flow.png
